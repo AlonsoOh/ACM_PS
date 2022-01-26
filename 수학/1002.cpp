@@ -5,10 +5,12 @@ int main(void) {
     int t;							        //테스트 케이스의 수
     int x1, x2, y1, y2, r1, r2;				//x1, x2, y1, y2 두 사람의 위치를 나타내는 좌표, r1, r2 : 마린까지의 거리 
     double distance;					    //두 터렛 사이의 거리
+    
     scanf("%d", &t);
 
     while (t--) {
         scanf("%d %d %d %d %d %d", &x1, &y1, &r1, &x2, &y2, &r2);
+        //두 점 사이의 거리
         distance = sqrt(pow(x1 - x2, 2.0) + pow(y1 - y2, 2.0));
 
         //둘이 같은 위치일 경우
@@ -23,7 +25,7 @@ int main(void) {
         //두 점에 만나는 경우
         else if (abs(r1 - r2) < distance && distance < r1 + r2) printf("2\n");
 
-        //한 점에서 외접하는 경우
+        //한 점에서 외접하거나 내접하는 경우
         else if (r1 + r2 == distance || distance == abs(r1 - r2)) printf("1\n");
 
         //그 밖의 경우는 없음
